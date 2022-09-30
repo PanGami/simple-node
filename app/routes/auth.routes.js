@@ -12,7 +12,8 @@ module.exports = function(app) {
         );
         next();
     });
-
+    // WARNING!!!
+    // This is for test role because it have Security Issue (can make moderator or admin in signup)
     app.post("/api/auth/signup",[verifySignUp.checkDuplicateUsernameOrEmail,verifySignUp.checkRolesExisted],controller.signup);
     app.post("/api/auth/signin", controller.signin);
 }
