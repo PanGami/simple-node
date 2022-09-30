@@ -39,7 +39,7 @@ exports.signup = (req, res) => {
             });
         }
     }).catch(err => {
-        res.statuss(500).send({message: err.message});
+        res.status(500).send({message: err.message});
     });
 };
 
