@@ -2,11 +2,9 @@
 // - check if token is provided, legal or not. We get token from x-access-token of HTTP headers, then use jsonwebtoken's verify() function.
 // - check if roles of the user contains required role or not.
 
-
-
 const jwt = require("jsonwebtoken");
 const config = require("../config/auth.config");
-const db = require("../models")
+const db = require("../../models")
 const User = db.user;
 
 verifyToken = (req, res, next) => {

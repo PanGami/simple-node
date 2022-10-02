@@ -7,9 +7,9 @@
 // - response object ( res )
 // - when next invoked it will executes the middleware succeeding the current middleware.
 
-const db = require('../models');
-const ROLES = db.ROLES;
-const User = db.user;
+const db = require('../../models');
+const InitialRole = ["user","admin","moderator"];;
+const User = db.User;
 
 checkDuplicateUsernameOrEmail = (req, res, next) => {
     User.findOne({ 
@@ -44,7 +44,7 @@ checkDuplicateUsernameOrEmail = (req, res, next) => {
 checkRolesExisted = (req, res, next) => {
     if(req.body.roles){
         for(let i = 0; i < req.body.roles.length; i++){
-            if (!ROLES.includes(req.body.roles[i])){
+            if (!InitialRole.includes(req.body.roles[i])){
                 res.status(400).send({
                     message: "Failed! Role doesn't exist = " + req.body.roles[i] 
                 });

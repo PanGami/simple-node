@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT;
 //Database
-const db = require("./app/models");
+const db = require("./models");
 const Role = db.role;
 
 var corsOptions = {
