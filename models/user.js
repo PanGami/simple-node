@@ -16,6 +16,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "userId",
         otherKey: "roleId"
       });
+      this.belongsTo(models.employee,{
+        foreignKey: "id",
+        targetKey: "email",
+      })
     }
   }
   User.init({
