@@ -6,8 +6,7 @@ function parseJwt (token) {
 }
 
 exports.scope = (req, res) => {
-    let decodedValue = parseJwt(req.body.access_token);
-    res.status(200).send(decodedValue.scopes); // Hanya mendapatkan scopes
+    res.status(200).send("USER GRANTED"); // Hanya mendapatkan scopes
 };
 
 exports.input = (req, res) => {

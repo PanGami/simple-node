@@ -1,4 +1,5 @@
 const controller = require("../controllers/domain.controller");
+const {scope} = require("../middleware");
 
 module.exports = function(app) {
     app.use(function(req, res, next) {
@@ -8,6 +9,20 @@ module.exports = function(app) {
         );
         next();
     });    
-    app.post("/api/domain/scope", controller.scope);
+    app.post(
+        "/api/domain/scope", 
+        [scope.verifyScope],
+        controller.scope
+    );
+    // app.get(
+    //     "/api/domain/get", 
+    //     [scope.verifyScope],
+    //     controller.getEmployee
+    // );
+    // app.post(
+    //     "/api/domain/post", 
+    //     [scope.verifyScope],
+    //     controller.makeEmployee
+    // );
   };
   
