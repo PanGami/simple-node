@@ -1,4 +1,4 @@
-const {isScope} = require("../middleware");
+const {scope} = require("../middleware");
 const controller = require("../controllers/employee.controller.js");
 
 module.exports = function(app) {
@@ -9,9 +9,9 @@ module.exports = function(app) {
         );
         next();
     });    
-    app.post("/api/employee", controller.createEmployee);
-    app.get("/api/employee", controller.getAllEmployee);
-    app.put("/api/employee/:id", controller.updateEmployee);
-    app.delete("/api/employee/:id", controller.deleteEmployee);
+    app.post("/api/employee",[scope.verifyScope("insert:employee")], controller.createEmployee);
+    app.get("/api/employee",[scope.verifyScope("read:employee")], controller.getAllEmployee);
+    app.put("/api/employee/:id",[scope.verifyScope("update:employee")], controller.updateEmployee);
+    app.delete("/api/employee/:id",[scope.verifyScope("delete:employee")], controller.deleteEmployee);
   };
   
