@@ -64,3 +64,12 @@ Get a page with certain permission in scope (Moderator can access)
 
 ### `/api/test/admin`
 Get a page with certain permission in scope (Admin can access)
+
+# Note
+Still in Development!
+- User table as well as migrations, models, etc is not valid because its just a experimental to prepare authentication service provided user db
+- Flow :
+1. Frontend will do authentication and authorization using authentication service and get access-token as well as id-token
+2. Frontend passing access-token from authentication service to backend in header as domain-access-token
+3. Backend will verify its access-token valid or not to access certain endpoints or api
+4. ...
