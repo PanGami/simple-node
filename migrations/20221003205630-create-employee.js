@@ -17,10 +17,10 @@ module.exports = {
       email: {
         type: Sequelize.STRING,
         allowNull: false,
-        references: {
-          model: "User",
-          key: "email"
-        }
+        // references: {
+        //   model: "User",
+        //   key: "email"
+        // }
       },
       organization: {
         type: Sequelize.STRING
