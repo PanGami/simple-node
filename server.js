@@ -45,9 +45,16 @@ db.sequelize.sync({force: true}).then(()=>{
 app.get("/", (req, res) => {
   res.json({ message: "HELLO" });
 });
+app.get("/endpoints", (req, res) => {
+  res.json(
+    app._router.stack          // registered routes
+      .filter(r => r.route)    // take out all the middleware
+      .map(r => r.route.path)  // get all the paths
+    )
+});
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
-require('./app/routes/domain.routes')(app);
+require('./app/routes/employee.routes')(app);
 
 // Server Run
 app.listen(PORT, () => {
