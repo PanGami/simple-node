@@ -3,7 +3,7 @@ function parseJwt (token) {
 }
 const verifyScope = scope => {
     return (req, res, next) => {
-        let access_token = req.body.access_token;
+        let access_token = req.headers["domain-access-token"];
         if(access_token || scope){
             let scopes = ((parseJwt(access_token).scopes).toString()).split(' ');        
             scopes.includes(scope) ? next() : res.status(403).send({ message: "Permission denied"});
