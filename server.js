@@ -54,7 +54,6 @@ app.get("/endpoints", (req, res) => {
 });
 require('./app/routes/auth.routes')(app);
 require('./app/routes/user.routes')(app);
-require('./app/routes/domain.routes')(app);
 require('./app/routes/employee.routes')(app);
 
 // Server Run
