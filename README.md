@@ -1,3 +1,15 @@
+# Hi There! <img src="https://raw.githubusercontent.com/MartinHeinz/MartinHeinz/master/wave.gif" width="30" height="30"></h1>
+This Project is a simple backend webapp that integrates with authentication services !
+
+# How to run
+1. First Get this Repo / folder (You can choosse zip, fork, clone, etc)
+2.  Go to simple-node folder (cd simple-node)
+3. npm install
+4. edit db config at simple-node/config/config.json
+5. sequelize db:migrate
+6. npm start
+7. Done!
+
 # Available Routes
 These Routes will be available, every routes have its scope/permission (if needed) so you can pass domain-access-token at header 
 
