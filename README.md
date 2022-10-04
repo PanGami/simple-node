@@ -2,8 +2,8 @@
 This Project is a simple backend webapp that integrates with authentication services !
 
 # How to run
-1. First Get this Repo / folder (You can choosse zip, fork, clone, etc)
-2.  Go to simple-node folder (cd simple-node)
+1. Get this Repo / folder (You can choosse zip, fork, clone, etc)
+2. Go to simple-node folder (cd simple-node)
 3. npm install
 4. edit db config at simple-node/config/config.json
 5. sequelize db:migrate
