@@ -1,8 +1,4 @@
-const authJwt = require("./authJwt");
-const verifySignUp = require("./verifySignUp");
-const scope = require("./scope");
+const tokenProcess = require("./tokenProcess");
 module.exports = {
-  authJwt,
-  verifySignUp,
-  scope
+  tokenProcess
 };

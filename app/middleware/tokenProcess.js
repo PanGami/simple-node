@@ -10,8 +10,10 @@ const verifyScope = scope => {
         }
     }
 };
-const scope = {
-    verifyScope: verifyScope
+
+const tokenProcess = {
+    verifyScope: verifyScope,
+    parseJwt: parseJwt
 };
 
-module.exports = scope;
+module.exports = tokenProcess;
