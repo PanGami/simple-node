@@ -17,10 +17,8 @@ exports.createEmployee = (req, res) => {
             !result ? 
             Employee.create(data).then(result => { 
                 res.json({message: "New Employee Created"})
-            }) : 
-            Employee.update(data, {where: {foreign : data.foreign}}).then(result => { 
-                res.json({message: "Employee Exist! Any data changes will be updated"})
-            });            
+            }) :       
+            res.json({message: "Employee Exist! Can't create a new employee"})
         }).catch(err => {
                 res.status(500).send({message: err.message});
         });
