@@ -1,4 +1,4 @@
-const {scope} = require("../middleware");
+const {tokenProcess} = require("../middleware");
 const controller = require("../controllers/employee.controller.js");
 
 module.exports = function(app) {
@@ -9,9 +9,9 @@ module.exports = function(app) {
         );
         next();
     });    
-    app.post("/api/employee",[scope.verifyScope("insert:employee")], controller.createEmployee);
-    app.get("/api/employee",[scope.verifyScope("read:employee")], controller.getAllEmployee);
-    app.put("/api/employee/:id",[scope.verifyScope("update:employee")], controller.updateEmployee);
-    app.delete("/api/employee/:id",[scope.verifyScope("delete:employee")], controller.deleteEmployee);
+    app.post("/api/employee",[tokenProcess.verifyScope("insert:employee")], controller.createEmployee);
+    app.get("/api/employee",[tokenProcess.verifyScope("read:employee")], controller.getAllEmployee);
+    app.put("/api/employee/:id",[tokenProcess.verifyScope("update:employee")], controller.updateEmployee);
+    app.delete("/api/employee/:id",[tokenProcess.verifyScope("delete:employee")], controller.deleteEmployee);
   };
   

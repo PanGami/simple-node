@@ -1,20 +1,28 @@
 const db = require("../../models");
-// const User = db.User;
 const Employee = db.employee;
+const {tokenProcess} = require("../middleware");
 
 exports.createEmployee = (req, res) => {
-    Employee.create({
-        name: req.body.name,
-        address: req.body.address,
-        email: req.body.email,
-        organization: req.body.organization
-    }).then(result => {
-        res.json({
-            message: result
-        })
-    }).catch(err => {
-        res.status(500).send({message: err.message});
-    });
+    if(req.headers.token){
+        let user = tokenProcess.parseJwt(req.headers.token);
+        let data = {
+            name: user.name,        
+            email: user.email,        
+            picture: user.picture,
+            foreign: user.email
+        }
+        Employee.findOne({
+            where: {foreign : data.foreign}
+        }).then(result =>{
+            !result ? 
+            Employee.create(data).then(result => { 
+                res.json({message: "New Employee Created"})
+            }) :       
+            res.json({message: "Employee Exist! Can't create a new employee"})
+        }).catch(err => {
+                res.status(500).send({message: err.message});
+        });
+    }
 };
 
 exports.getAllEmployee = (req, res) => {
